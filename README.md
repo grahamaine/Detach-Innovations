@@ -1,41 +1,30 @@
-# Jimmy Fabrication website
+# Jimmy's Fabrication Co. — website
 
-Website for an Entebbe fabrication workshop: studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture, shade lounges, and bulk steel materials for sale.
+Website for an Entebbe fabrication workshop building mobile temporary units — studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture and shade lounges — and selling steel materials in bulk.
+
+Built on the same model as the Attitude Aviation portal: Next.js 16 (App Router), Tailwind CSS 4 and the Oswald font.
 
 Powered and rendered by **thee AGENCY Consults (UG) Limited** — Innovation Unleashed.
 
 ## Change the business details
 
-Everything business-specific lives in **`site.config.json`**: brand name, phone, WhatsApp number, email, address, hours and the live site URL. Edit that file and redeploy; every page, the Google structured data, the sitemap and robots.txt pick it up.
+- **`lib/brand.ts`** — name, phone, WhatsApp, email, address, hours, site URL, socials. *Currently placeholders until the business card details arrive.*
+- **`lib/products.ts`** — product catalogue, steel stock list and "How we build" steps.
+- **`lib/gallery-manifest.ts`** — photos in the gallery slideshow.
+- **`components/Logo.tsx`** — temporary text logo; swap for the real logo when supplied.
+- Photos live in `public/images/`.
 
-- `phone` — international format, no spaces (`+2567…`)
-- `whatsapp` — digits only, no `+` (`2567…`)
-- `siteUrl` — the final domain, no trailing slash. Update this when the custom domain goes live.
+## Pages
 
-## Photos
+`/` home · `/products` · `/products/[slug]` · `/steel` · `/about` · `/contact` · `/request` (quote form → WhatsApp) · `/sitemap.xml` · `/robots.txt`
 
-Photos are in `src/img/` as `.webp`. To swap one, keep the same file name or update the `src` in `src/index.html`. `og.jpg` (1200×630) is the preview image shown when the link is shared on WhatsApp/Facebook.
-
-## Build and run
+## Run locally
 
 ```bash
-npm run build      # writes dist/
-npm run dev        # build + serve locally
+npm install
+npm run dev
 ```
 
-No dependencies. Node 18+.
+## Deploy
 
-## Deploy (Vercel)
-
-Import the GitHub repo in Vercel. `vercel.json` already sets the build command (`npm run build`) and output folder (`dist`).
-
-## Structure
-
-```
-site.config.json   business details (edit this)
-src/index.html     the page, with {{placeholders}}
-src/styles.css     styles
-src/main.js        quote form → WhatsApp
-src/img/           photos
-scripts/build.mjs  fills placeholders, outputs dist/
-```
+Import this repo in Vercel (framework: Next.js, no settings needed).

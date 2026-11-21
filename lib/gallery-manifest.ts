@@ -1,0 +1,23 @@
+// Photos shown in the gallery slideshow. Add new photos to /public/images and list them here.
+export const GALLERY_PHOTOS: string[] = [
+  '/images/studio-red-deck.webp',
+  '/images/container-mural.webp',
+  '/images/cabin-front.webp',
+  '/images/studio-kitchenette.webp',
+  '/images/modular-set.webp',
+  '/images/garden-lounge.webp',
+  '/images/studio-bedroom.webp',
+  '/images/workshop-grinding.webp',
+  '/images/cabin-side.webp',
+  '/images/studio-deck-garden.webp',
+  '/images/steel-frame-pair.webp',
+  '/images/on-site-fitting.webp',
+  '/images/glazed-front.webp',
+  '/images/studio-sliding-door.webp',
+  '/images/lounge-seating.webp',
+  '/images/workshop-cutting.webp',
+  '/images/studio-red-corner.webp',
+  '/images/finishing-paint.webp',
+  '/images/steel-frame-single.webp',
+  '/images/studio-raised-deck.webp',
+];
