@@ -15,7 +15,7 @@ export const BRAND = {
   whatsapp: '256701717288', // digits only, no +
   email: 'buqirwajimie@gmail.com',
   hours: 'Mon – Sat, 8:00 – 18:00',
-  siteUrl: 'https://jimmy-fabrication.vercel.app',
+  siteUrl: 'https://detachinnovations.vercel.app',
   social: {
     facebook: '',
     instagram: '',
