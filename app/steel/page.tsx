@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { BRAND, telLink, waLink } from '@/lib/brand';
 import { STEEL_ITEMS } from '@/lib/products';
 import Reveal from '@/components/Reveal';
+import BlueprintGrid from '@/components/BlueprintGrid';
 
 export const metadata: Metadata = {
   title: 'Steel Supply',
@@ -14,7 +15,8 @@ export default function SteelPage() {
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('/images/workshop-grinding.webp')" }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark/95 via-slate-900/75 to-brand-dark/80 animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/95 via-slate-900/75 to-brand-dark/80 animate-gradient" />
+        <BlueprintGrid variant="overlay" />
         <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
           <span className="text-xs font-semibold text-spark uppercase tracking-widest">Steel Supply</span>
           <h1 className="mt-2 text-4xl md:text-6xl font-extrabold uppercase drop-shadow-xl">Steel Materials in Bulk</h1>
@@ -52,8 +54,9 @@ export default function SteelPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-steel to-steel-dark py-16 px-6 text-center text-white">
-        <Reveal className="max-w-3xl mx-auto">
+      <section className="relative overflow-hidden py-16 px-6 text-center text-white">
+        <BlueprintGrid />
+        <Reveal className="relative max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold uppercase">Buying for a project?</h2>
           <p className="mt-3 text-slate-300">
             Send your list of sizes and quantities and we&apos;ll price the lot. We can also fabricate the frames for you.

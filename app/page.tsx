@@ -3,6 +3,7 @@ import { BRAND, waLink } from '@/lib/brand';
 import { PRODUCTS, STEEL_ITEMS, STEPS } from '@/lib/products';
 import GallerySlideshow from '@/components/GallerySlideshow';
 import Reveal from '@/components/Reveal';
+import BlueprintGrid from '@/components/BlueprintGrid';
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: "url('/images/studio-red-deck.webp')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark/90 via-slate-900/70 to-brand-dark/85 animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/80 animate-gradient" />
+        <BlueprintGrid variant="overlay" />
         <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center text-white animate-fade-in-up">
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight uppercase max-w-4xl drop-shadow-xl">
             {BRAND.fullName}
@@ -154,8 +156,9 @@ export default function Home() {
       </section>
 
       {/* STEEL SUPPLY BAND */}
-      <section className="bg-gradient-to-br from-steel-dark via-steel to-brand-dark animate-gradient py-20 px-6">
-        <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 items-center">
+      <section className="relative overflow-hidden py-20 px-6">
+        <BlueprintGrid />
+        <div className="relative max-w-7xl mx-auto grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
             <span className="text-xs font-semibold text-spark uppercase tracking-widest">Steel Supply</span>
             <h2 className="mt-1 text-3xl md:text-4xl font-bold text-white uppercase">Steel materials, sold from our stock</h2>
@@ -189,8 +192,9 @@ export default function Home() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="bg-gradient-to-b from-slate-900 to-steel-dark py-20 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section id="gallery" className="relative overflow-hidden py-20 px-6">
+        <BlueprintGrid />
+        <div className="relative max-w-5xl mx-auto">
           <Reveal className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white uppercase">Our Work</h2>
             <p className="mt-3 text-slate-300 max-w-2xl mx-auto">Real units, real welding, real sites across Uganda.</p>

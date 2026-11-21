@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { BRAND } from '@/lib/brand';
 import { STEPS } from '@/lib/products';
 import Reveal from '@/components/Reveal';
+import BlueprintGrid from '@/components/BlueprintGrid';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -14,7 +15,8 @@ export default function AboutPage() {
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('/images/container-mural.webp')" }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark/90 via-slate-900/70 to-brand-dark/85 animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/85 animate-gradient" />
+        <BlueprintGrid variant="overlay" />
         <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl font-extrabold uppercase drop-shadow-xl">About {BRAND.name}</h1>
           <p className="mt-5 text-lg text-slate-100 max-w-2xl mx-auto">{BRAND.tagline}.</p>
