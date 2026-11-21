@@ -49,7 +49,7 @@ export default function SplashScreen() {
             <Logo size="lg" />
           </div>
           <p className="mt-5 text-[11px] md:text-xs tracking-[0.25em] text-cyan-300/80 uppercase">
-            Cabins · Containers · Steel · Entebbe
+            Earth Moving Housing · Entebbe
           </p>
         </div>
 

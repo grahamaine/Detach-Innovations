@@ -28,13 +28,18 @@ export default function AboutPage() {
         <Reveal>
           <h2 className="text-3xl font-bold text-slate-900 uppercase">Who we are</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            {BRAND.fullName} is a fabrication workshop in Entebbe building mobile temporary units — studio
+            {BRAND.fullName} — {BRAND.tagline} — is a fabrication workshop on Berkely Rd, Entebbe, building mobile temporary units — studio
             cabins, site offices, container conversions, shade lounges and modular steel furniture.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             We buy steel in bulk for our own work and sell from that stock too, so builders and
             workshops can source materials and fabrication from one yard.
           </p>
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-brand-light p-5">
+            <p className="text-xs font-semibold text-brand uppercase tracking-wider">Founder</p>
+            <p className="mt-1 text-xl font-bold text-slate-900 uppercase">{BRAND.owner}</p>
+            <p className="text-sm text-slate-600">{BRAND.ownerTitle} — designer of our modular steel furniture that turns one set of frames into a bedroom, living room, dining room, library and storage closet.</p>
+          </div>
         </Reveal>
         <Reveal className="grid grid-cols-2 gap-3">
                     <BuildImg src="/images/on-site-fitting.webp" alt="Fabricator measuring on site" frameClass="rounded-2xl shadow-lg" className="aspect-[3/4] w-full object-cover" />

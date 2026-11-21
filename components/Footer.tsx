@@ -12,6 +12,7 @@ export default function Footer() {
             <Logo />
           </span>
           <p className="mt-4 text-sm max-w-md leading-relaxed">{BRAND.description}</p>
+          <p className="mt-3 text-sm text-white">{BRAND.owner} · {BRAND.ownerTitle}</p>
           <ul className="mt-5 space-y-1.5 text-sm">
             <li>📍 {BRAND.address}</li>
             {BRAND.phones.map((p) => (

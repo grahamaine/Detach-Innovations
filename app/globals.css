@@ -11,10 +11,11 @@
   --font-sans: var(--font-oswald), system-ui, sans-serif;
   --font-mono: var(--font-oswald), system-ui, sans-serif;
 
-  /* Brand palette: cabin red-orange (brand) + mild steel charcoal (steel) */
-  --color-brand: #d2461f;
-  --color-brand-dark: #a93515;
-  --color-brand-light: #fdeee8;
+  /* Brand palette: Detach Innovations forest green (from the business card) + mild steel charcoal */
+  --color-brand: #0f5a3d;
+  --color-brand-dark: #0a3d29;
+  --color-brand-light: #e7f3ec;
+  --color-cabin: #d2461f;
   --color-steel: #2a3237;
   --color-steel-dark: #1a2024;
   --color-spark: #f2b705;
@@ -67,8 +68,8 @@ main > *:only-child {
   100% { opacity: 1; transform: scale(1); }
 }
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(210, 70, 31, 0.35); }
-  50% { box-shadow: 0 0 22px 4px rgba(210, 70, 31, 0.45); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(15, 90, 61, 0.35); }
+  50% { box-shadow: 0 0 22px 4px rgba(15, 90, 61, 0.45); }
 }
 @keyframes bobIn {
   from { opacity: 0; transform: translateY(16px) scale(0.98); }
@@ -136,11 +137,11 @@ main > *:only-child {
 .article-prose ul { list-style: disc; }
 .article-prose ol { list-style: decimal; }
 .article-prose li { margin: 0.35rem 0; }
-.article-prose a { color: #d2461f; font-weight: 600; }
+.article-prose a { color: #0f5a3d; font-weight: 600; }
 .article-prose a:hover { text-decoration: underline; }
 .article-prose strong { color: #0f172a; font-weight: 700; }
 .article-prose blockquote {
-  border-left: 4px solid #d2461f; background: #fdeee8; margin: 0 0 1.15rem;
+  border-left: 4px solid #0f5a3d; background: #e7f3ec; margin: 0 0 1.15rem;
   padding: 0.75rem 1.1rem; border-radius: 0 0.5rem 0.5rem 0; color: #334155;
 }
 

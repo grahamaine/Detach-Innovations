@@ -1,6 +1,6 @@
-# Jimmy's Fabrication Co. — website
+# Detach Innovations — website
 
-Website for an Entebbe fabrication workshop building mobile temporary units — studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture and shade lounges — and selling steel materials in bulk.
+Website for Detach Innovations (Earth Moving Housing), owned by Buqirwa Jimie — an Entebbe fabrication workshop building mobile temporary units — studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture and shade lounges — and selling steel materials in bulk.
 
 Built on the same model as the Attitude Aviation portal: Next.js 16 (App Router), Tailwind CSS 4 and the Oswald font.
 
@@ -8,10 +8,10 @@ Powered and rendered by **thee AGENCY Consults (UG) Limited** — Innovation Unl
 
 ## Change the business details
 
-- **`lib/brand.ts`** — name, phone, WhatsApp, email, address, hours, site URL, socials. *Currently placeholders until the business card details arrive.*
+- **`lib/brand.ts`** — name, phone, WhatsApp, email, address, hours, site URL, socials. Filled from the owner's business card.
 - **`lib/products.ts`** — product catalogue, steel stock list and "How we build" steps.
 - **`lib/gallery-manifest.ts`** — photos in the gallery slideshow.
-- **`components/Logo.tsx`** — temporary text logo; swap for the real logo when supplied.
+- **`components/Logo.tsx`** — logo redrawn from the business card mark (SVG).
 - Photos live in `public/images/`.
 
 ## Pages

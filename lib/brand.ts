@@ -1,17 +1,19 @@
-// Single source of truth for business details.
-// PLACEHOLDERS: replace with the details on Jimmy's business card.
+// Single source of truth for business details (from the owner's business card).
 export const BRAND = {
-  name: 'Jimmy Fabrication',
-  fullName: 'Jimmy Fabrication Uganda',
-  tagline: 'Built in our yard, set down on yours',
+  name: 'Detach Innovations',
+  fullName: 'Detach Innovations',
+  tagline: 'Earth Moving Housing',
+  owner: 'Buqirwa Jimie',
+  ownerTitle: 'Steeler / Inventor',
   description:
-    'Entebbe fabrication workshop building mobile temporary units: studio cabins, glass-panel cabins and site offices, container conversions, shade lounges and modular steel furniture, plus bulk steel materials for sale. Delivered and set up across Uganda.',
-  address: 'Entebbe, Wakiso, Uganda',
+    'Detach Innovations — Earth Moving Housing. Entebbe fabrication workshop building mobile temporary units: studio cabins, glass-panel cabins and site offices, container conversions, shade lounges and modular steel furniture, plus bulk steel materials for sale. Delivered and set up across Uganda.',
+  address: 'Berkely Rd, Entebbe, Uganda',
+  street: 'Berkely Rd',
   locality: 'Entebbe',
   region: 'Wakiso',
-  phones: ['+256 700 000 000'],
-  whatsapp: '256700000000', // digits only, no +
-  email: 'hello@example.com',
+  phones: ['+256 701 717 288'],
+  whatsapp: '256701717288', // digits only, no +
+  email: 'buqirwajimie@gmail.com',
   hours: 'Mon – Sat, 8:00 – 18:00',
   siteUrl: 'https://jimmy-fabrication.vercel.app',
   social: {

@@ -9,8 +9,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const cards = [
+    { icon: '👷', label: `${BRAND.ownerTitle}`, value: BRAND.owner },
     { icon: '📞', label: 'Call', value: BRAND.phones[0], href: telLink(BRAND.phones[0]) },
-    { icon: '💬', label: 'WhatsApp', value: 'Chat with us', href: waLink(`Hello ${BRAND.name}`) },
+    { icon: '💬', label: 'WhatsApp', value: BRAND.phones[0], href: waLink(`Hello ${BRAND.name}`) },
     { icon: '✉️', label: 'Email', value: BRAND.email, href: `mailto:${BRAND.email}` },
     { icon: '📍', label: 'Workshop', value: BRAND.address },
     { icon: '🕗', label: 'Hours', value: BRAND.hours },

@@ -21,6 +21,9 @@ export default function Home() {
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight uppercase max-w-4xl drop-shadow-xl">
             {BRAND.fullName}
           </h1>
+          <p className="mt-4 text-xl md:text-2xl font-medium uppercase tracking-[0.3em] text-cyan-200 drop-shadow">
+            {BRAND.tagline}
+          </p>
           <p className="mt-6 text-lg md:text-xl text-slate-100 max-w-2xl leading-relaxed drop-shadow">
             Studio cabins, site offices, container conversions and steel furniture — fabricated in
             Entebbe, delivered and fitted anywhere in Uganda. Plus steel materials sold in bulk.
@@ -233,10 +236,10 @@ export default function Home() {
       <section className="bg-gradient-to-r from-brand to-brand-dark animate-gradient py-20 px-6 text-center text-white">
         <Reveal className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold uppercase">Ready to build?</h2>
-          <p className="mt-3 text-orange-50">Send us a rough size, where it&apos;s going and what it&apos;s for. We&apos;ll come back with a drawing and a price.</p>
+          <p className="mt-3 text-emerald-50">Send us a rough size, where it&apos;s going and what it&apos;s for. We&apos;ll come back with a drawing and a price.</p>
           <Link
             href="/request"
-            className="btn-shine inline-block mt-8 bg-white hover:bg-orange-50 text-brand font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide"
+            className="btn-shine inline-block mt-8 bg-white hover:bg-emerald-50 text-brand font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide"
           >
             Request a Quote
           </Link>

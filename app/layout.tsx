@@ -16,14 +16,14 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND.siteUrl),
   title: {
-    default: `${BRAND.fullName} — Mobile Cabins, Containers & Steel Supply in Entebbe`,
+    default: `${BRAND.fullName} — ${BRAND.tagline} | Mobile Cabins, Containers & Steel in Entebbe`,
     template: `%s | ${BRAND.name}`,
   },
   description: BRAND.description,
   openGraph: {
     type: 'website',
-    title: `${BRAND.fullName} — Mobile Temporary Units`,
-    description: BRAND.tagline,
+    title: `${BRAND.fullName} — ${BRAND.tagline}`,
+    description: BRAND.description,
     images: ['/images/og.jpg'],
   },
   
@@ -33,6 +33,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   name: BRAND.fullName,
+  slogan: BRAND.tagline,
+  founder: { '@type': 'Person', name: BRAND.owner, jobTitle: BRAND.ownerTitle },
   description: BRAND.description,
   url: BRAND.siteUrl,
   image: `${BRAND.siteUrl}/images/og.jpg`,
@@ -40,6 +42,7 @@ const jsonLd = {
   email: BRAND.email,
   address: {
     '@type': 'PostalAddress',
+    streetAddress: BRAND.street,
     addressLocality: BRAND.locality,
     addressRegion: BRAND.region,
     addressCountry: 'UG',
