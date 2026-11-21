@@ -1,30 +1,101 @@
-# Detach Innovations — website
+<p align="center">
+  <img src="public/brand/detach-logo.svg" alt="Detach Innovations" width="360">
+</p>
 
-Website for Detach Innovations (Earth Moving Housing), owned by Buqirwa Jimie — an Entebbe fabrication workshop building mobile temporary units — studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture and shade lounges — and selling steel materials in bulk.
+<h3 align="center">Earth Moving Housing</h3>
 
-Built on the same model as the Attitude Aviation portal: Next.js 16 (App Router), Tailwind CSS 4 and the Oswald font.
+<p align="center">
+  Studio cabins · site offices · container conversions · modular steel furniture · bulk steel supply<br>
+  Fabricated on Berkely Rd, Entebbe — delivered and fitted anywhere in Uganda.
+</p>
 
-Powered and rendered by **thee AGENCY Consults (UG) Limited** — Innovation Unleashed.
+<p align="center">
+  <a href="https://detachinnovations.vercel.app"><b>🌐 detachinnovations.vercel.app</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://wa.me/256701717288">💬 WhatsApp</a>
+  &nbsp;·&nbsp;
+  <a href="https://detachinnovations.vercel.app/request">📝 Request a quote</a>
+</p>
 
-## Change the business details
+<p align="center">
+  <img src="public/brand/social-preview.jpg" alt="Detach Innovations — Earth Moving Housing" width="720">
+</p>
 
-- **`lib/brand.ts`** — name, phone, WhatsApp, email, address, hours, site URL, socials. Filled from the owner's business card.
-- **`lib/products.ts`** — product catalogue, steel stock list and "How we build" steps.
-- **`lib/gallery-manifest.ts`** — photos in the gallery slideshow.
-- **`components/Logo.tsx`** — logo redrawn from the business card mark (SVG).
-- Photos live in `public/images/`.
+---
 
-## Pages
+## About Detach Innovations
 
-`/` home · `/products` · `/products/[slug]` · `/steel` · `/about` · `/contact` · `/request` (quote form → WhatsApp) · `/sitemap.xml` · `/robots.txt`
+Detach Innovations builds **earth moving housing**: mobile units on welded steel frames that are finished in our Entebbe yard and set down on yours. Units sit on blocks or plinths, so there's no slab to pour and they can move later.
 
-## Run locally
+Founded by **Buqirwa Jimie**, steeler and inventor, who also designed our modular steel furniture: one set of frames that becomes a bed, sofa, dining bench, bookshelf and storage closet.
+
+### What we build
+
+| Product | What it is |
+| --- | --- |
+| [Studio cabins](https://detachinnovations.vercel.app/products/studio-cabins) | One-room units with sleeping area, kitchenette, shower room and a railed deck — ready to live in |
+| [Glass-panel cabins & site offices](https://detachinnovations.vercel.app/products/glass-panel-cabins) | Steel frame, insulated panels and wide glazing for offices, guard houses, stores and studios |
+| [Container conversions](https://detachinnovations.vercel.app/products/container-conversions) | Shipping containers cut, framed and fitted out as shops, kiosks, offices and rooms |
+| [Modular steel furniture](https://detachinnovations.vercel.app/products/modular-steel-furniture) | Welded frames that rearrange into bed, sofa, bench, shelving and storage |
+| [Shade lounges](https://detachinnovations.vercel.app/products/shade-lounges) | Steel roof, shade-net walls and raised decks for cafés, waiting areas and gardens |
+| [Steel materials](https://detachinnovations.vercel.app/steel) | Box and square tube, angle line, flat bar, round pipe, sheets and roofing from our bulk stock |
+
+### How we build
+
+1. **Measure & draw** — a scaled plan you approve before any steel is cut.
+2. **Fabricate in Entebbe** — frames, panels, glazing, wiring and finishes done in our yard.
+3. **Deliver & fit** — set level on blocks, connected, decks and trims finished.
+
+## Contact
+
+| | |
+| --- | --- |
+| **Company** | Detach Innovations |
+| **Owner** | Buqirwa Jimie — Steeler / Inventor |
+| **Phone & WhatsApp** | [+256 701 717 288](tel:+256701717288) · [Chat on WhatsApp](https://wa.me/256701717288) |
+| **Email** | [buqirwajimie@gmail.com](mailto:buqirwajimie@gmail.com) |
+| **Workshop** | Berkely Rd, Entebbe, Uganda |
+| **Hours** | Mon – Sat, 8:00 – 18:00 |
+| **Website** | [detachinnovations.vercel.app](https://detachinnovations.vercel.app) |
+
+---
+
+## For developers
+
+Built on the same model as the Attitude Aviation portal: **Next.js 16** (App Router), **Tailwind CSS 4**, **Oswald** font, deployed on **Vercel** from `main`.
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
+npm run build
 ```
 
-## Deploy
+### Where things live
 
-Import this repo in Vercel (framework: Next.js, no settings needed).
+| File | What to edit |
+| --- | --- |
+| `lib/brand.ts` | Company name, tagline, owner, phone, WhatsApp, email, address, hours, site URL, socials |
+| `lib/products.ts` | Product catalogue, steel stock list, "How we build" steps |
+| `lib/gallery-manifest.ts` | Photos in the gallery slideshow |
+| `components/Logo.tsx` | Logo used in the navbar, footer and splash |
+| `public/images/` | Project photos (`.webp`) |
+| `public/brand/` | Logo files (SVG/PNG) and the social preview image |
+
+### Features
+
+- Splash screen of a cabin being built on an animated blueprint grid
+- Photos that build themselves panel by panel as you scroll
+- Product catalogue with detail pages, steel supply page, gallery slideshow
+- Quote form that opens WhatsApp with the request filled in
+- Sitemap, robots.txt and LocalBusiness structured data for Google
+
+### Pages
+
+`/` · `/products` · `/products/[slug]` · `/steel` · `/about` · `/contact` · `/request`
+
+---
+
+<p align="center">
+  Powered and rendered by <b>thee AGENCY Consults (UG) Limited</b> — <i>Innovation Unleashed</i><br>
+  <a href="mailto:ainegb05@gmail.com">ainegb05@gmail.com</a> · <a href="https://wa.me/256742701202">WhatsApp +256 742 701 202</a>
+</p>
