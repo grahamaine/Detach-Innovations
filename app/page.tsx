@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BuildImg from '@/components/BuildImg';
 import { BRAND, waLink } from '@/lib/brand';
 import { PRODUCTS, STEEL_ITEMS, STEPS } from '@/lib/products';
 import GallerySlideshow from '@/components/GallerySlideshow';
@@ -11,7 +12,7 @@ export default function Home() {
       {/* HERO with photo background */}
       <header className="relative px-6 py-28 md:py-40 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
+          className="absolute inset-0 bg-cover bg-center scale-105 hero-build"
           style={{ backgroundImage: "url('/images/studio-red-deck.webp')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/80 animate-gradient" />
@@ -63,8 +64,7 @@ export default function Home() {
               <div className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-brand hover:shadow-xl hover:-translate-y-1 transition">
                 <Link href={`/products/${p.slug}`} className="absolute inset-0 z-0 rounded-2xl" aria-label={`${p.title} details`} />
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                                    <BuildImg src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow">
                     {p.category}
                   </span>
@@ -88,8 +88,7 @@ export default function Home() {
             <div className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-steel bg-steel text-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
               <Link href="/steel" className="absolute inset-0 z-0 rounded-2xl" aria-label="Steel supply details" />
               <div className="relative aspect-[4/3] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/workshop-grinding.webp" alt="Fabricator cutting steel with an angle grinder" loading="lazy" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" />
+                                <BuildImg src="/images/workshop-grinding.webp" alt="Fabricator cutting steel with an angle grinder" loading="lazy" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" />
                 <span className="absolute left-3 top-3 rounded-full bg-spark px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-steel shadow">
                   Steel supply
                 </span>
@@ -139,8 +138,7 @@ export default function Home() {
             <Reveal key={s.title} delay={i * 120}>
               <div className="h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover-lift">
                 <div className="relative aspect-[4/3] bg-slate-100">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.photo.src} alt={s.photo.alt} loading="lazy" className={`h-full w-full ${i === 0 ? 'object-contain bg-white' : 'object-cover'}`} />
+                                    <BuildImg src={s.photo.src} alt={s.photo.alt} loading="lazy" className={`h-full w-full ${i === 0 ? 'object-contain bg-white' : 'object-cover'}`} />
                   <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-brand text-white font-bold text-lg shadow-lg">
                     {i + 1}
                   </span>

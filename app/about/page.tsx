@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BuildImg from '@/components/BuildImg';
 import type { Metadata } from 'next';
 import { BRAND } from '@/lib/brand';
 import { STEPS } from '@/lib/products';
@@ -14,7 +15,7 @@ export default function AboutPage() {
   return (
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('/images/container-mural.webp')" }} />
+        <div className="absolute inset-0 bg-cover bg-center scale-105 hero-build" style={{ backgroundImage: "url('/images/container-mural.webp')" }} />
         <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/85 animate-gradient" />
         <BlueprintGrid variant="overlay" />
         <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
@@ -36,10 +37,8 @@ export default function AboutPage() {
           </p>
         </Reveal>
         <Reveal className="grid grid-cols-2 gap-3">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/on-site-fitting.webp" alt="Fabricator measuring on site" className="rounded-2xl aspect-[3/4] w-full object-cover shadow-lg" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/workshop-grinding.webp" alt="Cutting steel with an angle grinder" className="rounded-2xl aspect-[3/4] w-full object-cover shadow-lg mt-8" />
+                    <BuildImg src="/images/on-site-fitting.webp" alt="Fabricator measuring on site" frameClass="rounded-2xl shadow-lg" className="aspect-[3/4] w-full object-cover" />
+                    <BuildImg src="/images/workshop-grinding.webp" alt="Cutting steel with an angle grinder" frameClass="rounded-2xl shadow-lg mt-8" className="aspect-[3/4] w-full object-cover" />
         </Reveal>
       </section>
 

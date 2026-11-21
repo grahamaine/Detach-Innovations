@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BuildImg from '@/components/BuildImg';
 import type { Metadata } from 'next';
 import { PRODUCTS } from '@/lib/products';
 import Reveal from '@/components/Reveal';
@@ -25,8 +26,7 @@ export default function ProductsPage() {
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-brand hover:shadow-xl"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                                <BuildImg src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow">{p.category}</span>
               </div>
               <div className="flex flex-1 flex-col p-6">

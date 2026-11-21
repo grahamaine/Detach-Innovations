@@ -55,7 +55,7 @@ export default function GallerySlideshow() {
             alt={`Jimmy Fabrication project photo ${i + 1}`}
             loading={i === 0 ? 'eager' : 'lazy'}
             className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-              i === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              i === index ? 'opacity-100 scale-100 slide-build' : 'opacity-0 scale-105'
             }`}
           />
         ))}

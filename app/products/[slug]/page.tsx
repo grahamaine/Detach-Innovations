@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BuildImg from '@/components/BuildImg';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { PRODUCTS, getProduct } from '@/lib/products';
@@ -28,14 +29,12 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
       <div className="mt-6 grid gap-10 lg:grid-cols-2 items-start">
         <div className="animate-fade-in-up">
           <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={hero.src} alt={hero.alt} className="w-full aspect-[4/5] object-cover" />
+                        <BuildImg src={hero.src} alt={hero.alt} frameClass="w-full" className="w-full aspect-[4/5] object-cover" />
           </div>
           {rest.length > 0 && (
             <div className="mt-3 grid grid-cols-3 gap-3">
               {rest.map((ph) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" className="aspect-square w-full rounded-xl object-cover ring-1 ring-slate-200" />
+                <BuildImg key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" frameClass="rounded-xl ring-1 ring-slate-200" className="aspect-square w-full object-cover" />
               ))}
             </div>
           )}
@@ -95,8 +94,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PRODUCTS.filter((o) => o.slug !== p.slug).map((o) => (
             <Link key={o.slug} href={`/products/${o.slug}`} className="group overflow-hidden rounded-xl border border-slate-200 bg-white hover-lift">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={o.photos[0].src} alt={o.photos[0].alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                            <BuildImg src={o.photos[0].src} alt={o.photos[0].alt} loading="lazy" frameClass="w-full" className="aspect-[4/3] w-full object-cover" />
               <p className="p-4 font-bold text-slate-900 group-hover:text-brand uppercase text-sm">{o.title}</p>
             </Link>
           ))}

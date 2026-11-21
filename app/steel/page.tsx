@@ -14,7 +14,7 @@ export default function SteelPage() {
   return (
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('/images/workshop-grinding.webp')" }} />
+        <div className="absolute inset-0 bg-cover bg-center scale-105 hero-build" style={{ backgroundImage: "url('/images/workshop-grinding.webp')" }} />
         <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/95 via-slate-900/75 to-brand-dark/80 animate-gradient" />
         <BlueprintGrid variant="overlay" />
         <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
