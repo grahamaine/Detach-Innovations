@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-label="Detach Innovations">
+  <g fill="none" stroke="#0f5a3d" stroke-width="2.6" stroke-linejoin="miter" transform="translate(8 10) scale(1.85)">
+    <path d="M3 38 V12 L9 9 V38 Z"/><path d="M13 38 V8 L19 5 V38"/><path d="M19 5 L33 2 L45 10 L31 14 Z"/><path d="M31 14 L26 38"/>
+  </g>
+  <text x="108" y="56" font-family="Oswald, 'Arial Narrow', Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="2" fill="#0f5a3d">DETACH</text>
+  <text x="110" y="82" font-family="Oswald, 'Arial Narrow', Arial, sans-serif" font-size="16" font-weight="500" letter-spacing="9" fill="#0f5a3d">INNOVATIONS</text>
+</svg>
