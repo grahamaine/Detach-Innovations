@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { AGENCY, BRAND, telLink, waLink } from '@/lib/brand';
 import { PRODUCTS } from '@/lib/products';
 import Logo from '@/components/Logo';
+import { MapPin, Phone, Mail, Clock, Wrench, ClipboardList, Lock, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -14,16 +15,16 @@ export default function Footer() {
           <p className="mt-4 text-sm max-w-md leading-relaxed">{BRAND.description}</p>
           <p className="mt-3 text-sm text-white">{BRAND.owner} · {BRAND.ownerTitle}</p>
           <ul className="mt-5 space-y-1.5 text-sm">
-            <li>📍 {BRAND.address}</li>
+            <li className="flex items-start gap-2"><MapPin size={16} className="mt-0.5 shrink-0 text-spark" aria-hidden="true" />{BRAND.address}</li>
             {BRAND.phones.map((p) => (
-              <li key={p}>
-                📞 <a href={telLink(p)} className="hover:text-white">{p}</a>
+              <li key={p} className="flex items-start gap-2">
+                <Phone size={16} className="mt-0.5 shrink-0 text-spark" aria-hidden="true" /><a href={telLink(p)} className="hover:text-white">{p}</a>
               </li>
             ))}
-            <li>
-              ✉️ <a href={`mailto:${BRAND.email}`} className="hover:text-white">{BRAND.email}</a>
+            <li className="flex items-start gap-2">
+              <Mail size={16} className="mt-0.5 shrink-0 text-spark" aria-hidden="true" /><a href={`mailto:${BRAND.email}`} className="hover:text-white">{BRAND.email}</a>
             </li>
-            <li>🕗 {BRAND.hours}</li>
+            <li className="flex items-start gap-2"><Clock size={16} className="mt-0.5 shrink-0 text-spark" aria-hidden="true" />{BRAND.hours}</li>
           </ul>
         </div>
 
@@ -44,10 +45,10 @@ export default function Footer() {
           </details>
 
           <Link href="/steel" className="block rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white font-semibold text-sm uppercase tracking-wide hover:bg-white/10 transition">
-            🔩 Steel Supply →
+            <span className="flex items-center gap-2"><Wrench size={16} aria-hidden="true" /> Steel Supply <ArrowRight size={14} className="ml-auto" aria-hidden="true" /></span>
           </Link>
           <Link href="/request" className="block rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-white font-semibold text-sm uppercase tracking-wide hover:bg-white/10 transition">
-            📝 Request a Quote →
+            <span className="flex items-center gap-2"><ClipboardList size={16} aria-hidden="true" /> Request a Quote <ArrowRight size={14} className="ml-auto" aria-hidden="true" /></span>
           </Link>
         </div>
 
@@ -58,7 +59,7 @@ export default function Footer() {
             <li><Link href="/projects" className="hover:text-white">Projects</Link></li>
             <li><Link href="/#gallery" className="hover:text-white">Gallery</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-            <li><Link href="/admin" className="hover:text-white">🔒 Admin login</Link></li>
+            <li><Link href="/admin" className="inline-flex items-center gap-1.5 hover:text-white"><Lock size={14} aria-hidden="true" /> Admin login</Link></li>
             <li>
               <a href={waLink(`Hello ${BRAND.name}, I'd like a quote.`)} target="_blank" rel="noopener" className="hover:text-white">
                 WhatsApp us

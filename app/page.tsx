@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ProductIcon from '@/components/ProductIcon';
+import { CircleCheck } from 'lucide-react';
 import BuildImg from '@/components/BuildImg';
 import { BRAND, waLink } from '@/lib/brand';
 import { STEEL_ITEMS, STEPS } from '@/lib/products';
@@ -19,16 +21,15 @@ export default async function Home() {
           className="absolute inset-0 bg-cover bg-center scale-105 hero-build"
           style={{ backgroundImage: "url('/images/studio-red-deck.webp')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/80 animate-gradient" />
         <BlueprintGrid variant="overlay" />
-        <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center text-white animate-fade-in-up">
-          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight uppercase max-w-4xl drop-shadow-xl">
+        <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center text-slate-900 animate-fade-in-up">
+          <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight uppercase max-w-4xl">
             {BRAND.fullName}
           </h1>
-          <p className="mt-4 text-xl md:text-2xl font-medium uppercase tracking-[0.3em] text-cyan-200 drop-shadow">
+          <p className="mt-4 text-xl md:text-2xl font-medium uppercase tracking-[0.3em] text-slate-600">
             {BRAND.tagline}
           </p>
-          <p className="mt-6 text-lg md:text-xl text-slate-100 max-w-2xl leading-relaxed drop-shadow">
+          <p className="mt-6 text-lg md:text-xl text-slate-700 max-w-2xl leading-relaxed">
             Studio cabins, site offices, container conversions and steel furniture — fabricated in
             Entebbe, delivered and fitted anywhere in Uganda. Plus steel materials sold in bulk.
           </p>
@@ -41,7 +42,7 @@ export default async function Home() {
             </Link>
             <Link
               href="/request"
-              className="btn-shine border border-white/50 bg-white/10 backdrop-blur hover:bg-white/20 text-white font-medium text-lg px-8 py-4 rounded-xl transition hover:-translate-y-0.5 uppercase tracking-wide"
+              className="btn-shine border border-slate-300 bg-white/80 backdrop-blur hover:bg-white text-slate-800 font-medium text-lg px-8 py-4 rounded-xl transition hover:-translate-y-0.5 uppercase tracking-wide"
             >
               Request a Quote
             </Link>
@@ -50,7 +51,7 @@ export default async function Home() {
             href={waLink(`Hello ${BRAND.name}, I'd like a quote.`)}
             target="_blank"
             rel="noopener"
-            className="mt-8 text-sm text-white/80 hover:text-white underline underline-offset-4"
+            className="mt-8 text-sm text-slate-600 hover:text-slate-900 underline underline-offset-4"
           >
             Or chat with us on WhatsApp
           </a>
@@ -72,7 +73,7 @@ export default async function Home() {
                 <Link href={`/products/${p.slug}`} className="absolute inset-0 z-0 rounded-2xl" aria-label={`${p.title} details`} />
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
                                     <BuildImg src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                  <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow">
+                  <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow"><ProductIcon slug={p.slug} size={12} />
                     {p.category}
                   </span>
                 </div>
@@ -166,9 +167,9 @@ export default async function Home() {
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
-            <span className="text-xs font-semibold text-spark uppercase tracking-widest">Steel Supply</span>
-            <h2 className="mt-1 text-3xl md:text-4xl font-bold text-white uppercase">Steel materials, sold from our stock</h2>
-            <p className="mt-4 text-slate-200 max-w-xl leading-relaxed">
+            <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Steel Supply</span>
+            <h2 className="mt-1 text-3xl md:text-4xl font-bold text-slate-900 uppercase">Steel materials, sold from our stock</h2>
+            <p className="mt-4 text-slate-700 max-w-xl leading-relaxed">
               We buy steel in large quantities for our own fabrication and sell from the same stock to
               builders, welders and workshops. Tell us what you need and we&apos;ll confirm what&apos;s in the yard and the price.
             </p>
@@ -180,7 +181,7 @@ export default async function Home() {
                 href={waLink(`Hello ${BRAND.name}, I'd like steel prices. I need: `)}
                 target="_blank"
                 rel="noopener"
-                className="border border-white/50 bg-white/10 hover:bg-white/20 text-white font-medium px-8 py-3 rounded-xl transition uppercase tracking-wide"
+                className="border border-slate-300 bg-white hover:border-slate-500 text-slate-800 font-medium px-8 py-3 rounded-xl transition uppercase tracking-wide"
               >
                 Ask for Prices
               </a>
@@ -188,9 +189,9 @@ export default async function Home() {
           </Reveal>
           <Reveal className="grid grid-cols-2 gap-3">
             {STEEL_ITEMS.map((s) => (
-              <div key={s.title} className="rounded-xl border border-white/15 bg-white/5 backdrop-blur p-4">
-                <p className="font-bold text-white uppercase">{s.title}</p>
-                <p className="mt-1 text-xs text-slate-300">{s.note}</p>
+              <div key={s.title} className="rounded-xl border border-slate-200 bg-white/85 backdrop-blur p-4 shadow-sm">
+                <p className="font-bold text-slate-900 uppercase">{s.title}</p>
+                <p className="mt-1 text-xs text-slate-600">{s.note}</p>
               </div>
             ))}
           </Reveal>
@@ -202,8 +203,8 @@ export default async function Home() {
         <BlueprintGrid />
         <div className="relative max-w-5xl mx-auto">
           <Reveal className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white uppercase">Our Work</h2>
-            <p className="mt-3 text-slate-300 max-w-2xl mx-auto">Real units, real welding, real sites across Uganda.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 uppercase">Our Work</h2>
+            <p className="mt-3 text-slate-600 max-w-2xl mx-auto">Real units, real welding, real sites across Uganda.</p>
           </Reveal>
           <Reveal>
             <GallerySlideshow />
@@ -212,8 +213,9 @@ export default async function Home() {
       </section>
 
       {/* WHY US */}
-      <section id="about" className="bg-brand-light border-y border-slate-200 py-20 px-6">
-        <Reveal className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <section id="about" className="relative overflow-hidden border-y border-slate-200 py-20 px-6">
+        <BlueprintGrid />
+        <Reveal className="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl font-bold text-slate-900 uppercase">Why {BRAND.name}</h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
@@ -229,7 +231,7 @@ export default async function Home() {
               'Delivered and fitted anywhere in Uganda',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-700">
-                <span className="mt-1 text-brand font-bold">✓</span>
+                <CircleCheck size={20} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}
@@ -238,13 +240,14 @@ export default async function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-brand to-brand-dark animate-gradient py-20 px-6 text-center text-white">
-        <Reveal className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden border-t border-slate-200 py-20 px-6 text-center text-slate-900">
+        <BlueprintGrid />
+        <Reveal className="relative max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold uppercase">Ready to build?</h2>
-          <p className="mt-3 text-emerald-50">Send us a rough size, where it&apos;s going and what it&apos;s for. We&apos;ll come back with a drawing and a price.</p>
+          <p className="mt-3 text-slate-600">Send us a rough size, where it&apos;s going and what it&apos;s for. We&apos;ll come back with a drawing and a price.</p>
           <Link
             href="/request"
-            className="btn-shine inline-block mt-8 bg-white hover:bg-emerald-50 text-brand font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide"
+            className="btn-shine inline-block mt-8 bg-brand hover:bg-brand-dark text-white font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide"
           >
             Request a Quote
           </Link>

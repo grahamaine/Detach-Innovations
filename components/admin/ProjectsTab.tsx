@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { Upload, Eye, EyeOff, Trash2, ImagePlus, Camera } from 'lucide-react';
 import { supabase, PHOTO_BUCKET } from '@/lib/supabase';
 import { traceImage, type Trace } from '@/lib/trace';
 import { PROJECT_CATEGORIES } from '@/lib/projects';
@@ -131,13 +132,14 @@ export default function ProjectsTab() {
   return (
     <div className="space-y-6">
       <form onSubmit={onSave} className={`${card} space-y-4`}>
-        <h2 className="text-lg font-bold">Add a project photo</h2>
+        <h2 className="flex items-center gap-2 text-lg font-bold"><ImagePlus size={22} className="text-brand" aria-hidden="true" /> Add a project photo</h2>
         <p className="text-sm text-slate-600">
           The photo is resized for the web and its lines are traced automatically, so it draws itself as a blueprint on the Projects page.
         </p>
-        <label className="block text-sm font-medium text-slate-700">
-          Photo
-          <input type="file" accept="image/*" onChange={onFile} className={`mt-1 ${field}`} />
+        <label className="flex min-h-[96px] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-4 text-center text-sm font-medium text-slate-700 hover:border-brand">
+          <Camera size={28} className="text-brand" aria-hidden="true" />
+          {draft ? 'Choose a different photo' : 'Take or choose a photo'}
+          <input type="file" accept="image/*" onChange={onFile} className="sr-only" />
         </label>
         {draft && (
           <div className="max-w-xs overflow-hidden rounded-xl border border-slate-200">
@@ -164,7 +166,7 @@ export default function ProjectsTab() {
         </label>
         {error && <p className="text-sm text-red-700">{error}</p>}
         {busy && <p className="text-sm text-slate-500">{busy}</p>}
-        <button className={btnPrimary} disabled={Boolean(busy)}>Add photo</button>
+        <button className={btnPrimary} disabled={Boolean(busy)}><Upload size={18} aria-hidden="true" /> Add photo</button>
       </form>
 
       <section>
@@ -184,8 +186,8 @@ export default function ProjectsTab() {
                   <p className="text-sm text-slate-500">{r.category} · {r.published ? 'On the website' : 'Hidden'}</p>
                 </div>
                 <div className="flex gap-2">
-                  <button className={btnQuiet} onClick={() => toggle(r)}>{r.published ? 'Hide' : 'Show'}</button>
-                  <button className={btnDanger} onClick={() => remove(r)}>Delete</button>
+                  <button className={btnQuiet} onClick={() => toggle(r)}>{r.published ? <><EyeOff size={16} aria-hidden="true" /> Hide</> : <><Eye size={16} aria-hidden="true" /> Show</>}</button>
+                  <button className={btnDanger} onClick={() => remove(r)}><Trash2 size={16} aria-hidden="true" /> Delete</button>
                 </div>
               </div>
             </div>

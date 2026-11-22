@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { MessageCircle, Phone, Mail, Trash2, RefreshCw, MapPin, Ruler, StickyNote } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { btnDanger, btnPrimary, btnQuiet, card, field } from '@/components/admin/ui';
 
@@ -72,7 +73,7 @@ export default function QuotesTab() {
             {STATUSES.includes(v) && ` (${count(v)})`}
           </button>
         ))}
-        <button className={`${btnQuiet} ml-auto`} onClick={load}>Refresh</button>
+        <button className={`${btnQuiet} ml-auto`} onClick={load}><RefreshCw size={16} aria-hidden="true" /> Refresh</button>
       </div>
       {error && <p className="text-sm text-red-700">{error}</p>}
       {shown.length === 0 && (
@@ -103,16 +104,16 @@ function QuoteCard({ q, onUpdate, onRemove }: { q: Quote; onUpdate: (id: string,
         <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase ${STATUS_STYLE[q.status] ?? ''}`}>{q.status}</span>
       </div>
       <dl className="mt-3 grid gap-x-6 gap-y-1 text-sm sm:grid-cols-2">
-        {q.size && <Row k="Size / quantity" v={q.size} />}
-        {q.location && <Row k="Location" v={q.location} />}
-        {q.email && <Row k="Email" v={q.email} />}
-        <Row k="Phone" v={q.phone} />
+        {q.size && <Row k={<><Ruler size={14} aria-hidden="true" /> Size</>} v={q.size} />}
+        {q.location && <Row k={<><MapPin size={14} aria-hidden="true" /> Location</>} v={q.location} />}
+        {q.email && <Row k={<><Mail size={14} aria-hidden="true" /> Email</>} v={q.email} />}
+        <Row k={<><Phone size={14} aria-hidden="true" /> Phone</>} v={q.phone} />
       </dl>
       {q.details && <p className="mt-3 whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm text-slate-700">{q.details}</p>}
       <div className="mt-4 flex flex-wrap gap-2">
-        <a className={btnPrimary} href={`https://wa.me/${wa}`} target="_blank" rel="noopener">WhatsApp</a>
-        <a className={btnQuiet} href={`tel:${q.phone}`}>Call</a>
-        {q.email && <a className={btnQuiet} href={`mailto:${q.email}`}>Email</a>}
+        <a className={btnPrimary} href={`https://wa.me/${wa}`} target="_blank" rel="noopener"><MessageCircle size={18} aria-hidden="true" /> WhatsApp</a>
+        <a className={btnQuiet} href={`tel:${q.phone}`}><Phone size={18} aria-hidden="true" /> Call</a>
+        {q.email && <a className={btnQuiet} href={`mailto:${q.email}`}><Mail size={18} aria-hidden="true" /> Email</a>}
       </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-[180px_1fr]">
         <label className="text-sm font-medium text-slate-700">
@@ -122,7 +123,7 @@ function QuoteCard({ q, onUpdate, onRemove }: { q: Quote; onUpdate: (id: string,
           </select>
         </label>
         <label className="text-sm font-medium text-slate-700">
-          Notes for the team
+          <span className="inline-flex items-center gap-1"><StickyNote size={14} aria-hidden="true" /> Notes for the team</span>
           <textarea
             className={`mt-1 ${field}`}
             rows={2}
@@ -134,16 +135,16 @@ function QuoteCard({ q, onUpdate, onRemove }: { q: Quote; onUpdate: (id: string,
         </label>
       </div>
       <div className="mt-3 text-right">
-        <button className={btnDanger} onClick={() => onRemove(q.id)}>Delete</button>
+        <button className={btnDanger} onClick={() => onRemove(q.id)}><Trash2 size={16} aria-hidden="true" /> Delete</button>
       </div>
     </article>
   );
 }
 
-function Row({ k, v }: { k: string; v: string }) {
+function Row({ k, v }: { k: React.ReactNode; v: string }) {
   return (
     <div className="flex gap-2">
-      <dt className="text-slate-500">{k}:</dt>
+      <dt className="inline-flex shrink-0 items-center gap-1 text-slate-500">{k}:</dt>
       <dd className="font-medium text-slate-800">{v}</dd>
     </div>
   );

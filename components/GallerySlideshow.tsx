@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { GALLERY_PHOTOS } from '@/lib/gallery-manifest';
 import TraceOverlay, { traceFor } from '@/components/TraceOverlay';
+import { X, ChevronLeft, ChevronRight, Expand } from 'lucide-react';
 
 // Each slide is drafted from its own traced lines, then develops: give it time to finish.
 const AUTOPLAY_MS = 6000;
@@ -73,14 +74,14 @@ export default function GallerySlideshow() {
           onClick={() => go(-1)}
           className="absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white/85 backdrop-blur hover:bg-brand hover:text-white text-slate-800 grid place-items-center shadow-lg transition opacity-0 group-hover:opacity-100"
         >
-          ‹
+          <ChevronLeft size={22} aria-hidden="true" />
         </button>
         <button
           aria-label="Next photo"
           onClick={() => go(1)}
           className="absolute right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white/85 backdrop-blur hover:bg-brand hover:text-white text-slate-800 grid place-items-center shadow-lg transition opacity-0 group-hover:opacity-100"
         >
-          ›
+          <ChevronRight size={22} aria-hidden="true" />
         </button>
 
         {/* Expand to full gallery */}
@@ -88,7 +89,7 @@ export default function GallerySlideshow() {
           onClick={() => setGridOpen(true)}
           className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-white/85 backdrop-blur hover:bg-white text-slate-800 text-xs font-semibold px-3 py-2 shadow-lg transition"
         >
-          <span className="text-base leading-none">⤢</span> View full gallery
+          <Expand size={14} aria-hidden="true" /> View full gallery
         </button>
 
         <div className="absolute bottom-4 right-5 text-xs font-medium text-white bg-black/40 backdrop-blur rounded-full px-3 py-1 tabular-nums">
@@ -123,7 +124,7 @@ export default function GallerySlideshow() {
               className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white grid place-items-center text-xl"
               aria-label="Close gallery"
             >
-              ✕
+              <X size={20} aria-hidden="true" />
             </button>
           </div>
           <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -159,21 +160,21 @@ export default function GallerySlideshow() {
             className="absolute top-5 right-5 h-11 w-11 rounded-full bg-white/15 hover:bg-white/25 text-white grid place-items-center text-xl"
             aria-label="Close"
           >
-            ✕
+            <X size={22} aria-hidden="true" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); setViewer((v) => (v === null ? v : (v - 1 + photos.length) % photos.length)); }}
             className="absolute left-5 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/15 hover:bg-brand text-white grid place-items-center text-2xl"
             aria-label="Previous"
           >
-            ‹
+            <ChevronLeft size={26} aria-hidden="true" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); setViewer((v) => (v === null ? v : (v + 1) % photos.length)); }}
             className="absolute right-5 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/15 hover:bg-brand text-white grid place-items-center text-2xl"
             aria-label="Next"
           >
-            ›
+            <ChevronRight size={26} aria-hidden="true" />
           </button>
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm tabular-nums">
             {viewer + 1} / {photos.length}
