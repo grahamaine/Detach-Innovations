@@ -9,9 +9,9 @@ import Logo from '@/components/Logo';
 const links = [
   { href: '/about', label: 'About' },
   { href: '/products', label: 'Products' },
+  { href: '/projects', label: 'Projects' },
   { href: '/steel', label: 'Steel Supply' },
   { href: '/#how-we-build', label: 'How We Build' },
-  { href: '/#gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ];
 

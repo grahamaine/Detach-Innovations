@@ -3,7 +3,10 @@ import BuildImg from '@/components/BuildImg';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { PRODUCTS, getProduct } from '@/lib/products';
+import { getProducts } from '@/lib/data';
 import { BRAND, waLink } from '@/lib/brand';
+
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -18,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const p = getProduct(slug);
+  const products = await getProducts();
+  const p = products.find((x) => x.slug === slug);
   if (!p) notFound();
   const [hero, ...rest] = p.photos;
 
@@ -47,6 +51,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
           </div>
           <h1 className="mt-3 text-4xl font-bold text-slate-900 uppercase">{p.title}</h1>
           <p className="mt-4 text-lg text-slate-600 leading-relaxed">{p.summary}</p>
+          {p.priceNote && <p className="mt-3 text-xl font-bold text-brand">{p.priceNote}</p>}
           {p.body.map((para) => (
             <p key={para} className="mt-4 text-slate-600 leading-relaxed">{para}</p>
           ))}
@@ -92,7 +97,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
       <section className="mt-20">
         <h2 className="text-2xl font-bold text-slate-900 uppercase">Other products</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PRODUCTS.filter((o) => o.slug !== p.slug).map((o) => (
+          {products.filter((o) => o.slug !== p.slug).map((o) => (
             <Link key={o.slug} href={`/products/${o.slug}`} className="group overflow-hidden rounded-xl border border-slate-200 bg-white hover-lift">
                             <BuildImg src={o.photos[0].src} alt={o.photos[0].alt} loading="lazy" frameClass="w-full" className="aspect-[4/3] w-full object-cover" />
               <p className="p-4 font-bold text-slate-900 group-hover:text-brand uppercase text-sm">{o.title}</p>

@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { GALLERY_PHOTOS } from '@/lib/gallery-manifest';
+import TraceOverlay, { traceFor } from '@/components/TraceOverlay';
 
-const AUTOPLAY_MS = 4000;
+// Each slide is drafted from its own traced lines, then develops: give it time to finish.
+const AUTOPLAY_MS = 6000;
 
 export default function GallerySlideshow() {
   const photos = GALLERY_PHOTOS;
@@ -46,7 +48,7 @@ export default function GallerySlideshow() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* Stage */}
-      <div className="group relative aspect-[16/9] w-full overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bg-slate-900">
+      <div className="group relative aspect-[16/9] w-full overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bp-stage">
         {photos.map((src, i) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -55,10 +57,14 @@ export default function GallerySlideshow() {
             alt={`Detach Innovations project photo ${i + 1}`}
             loading={i === 0 ? 'eager' : 'lazy'}
             className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-              i === index ? 'opacity-100 scale-100 slide-build' : 'opacity-0 scale-105'
+              i === index ? 'scale-100 slide-develop' : 'opacity-0 scale-105'
             }`}
           />
         ))}
+        {(() => {
+          const t = traceFor(photos[index]);
+          return t ? <TraceOverlay key={index} trace={t} className="slide-trace" drawSeconds={1.5} delay={0.1} /> : null;
+        })()}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
         {/* Prev / Next */}
