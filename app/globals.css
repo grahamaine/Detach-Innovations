@@ -260,12 +260,22 @@ main > *:only-child {
   .bp-corners, .bp-trace, .bp-dims { display: none; }
 }
 
-/* Gallery slide + page-top photo: same panel-by-panel build */
-.slide-build { animation: bpSlide 1s steps(6, end) both; }
+/* Gallery slideshow: each slide drafted from its own traced lines, then the photo develops */
+.bp-stage { background-color: #06122a;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(55,224,255,0.16) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(55,224,255,0.16) 0 1px, transparent 1px 48px); }
+.slide-develop { opacity: 0; animation: bpDevelop 1.1s ease 1.6s forwards; }
+.slide-trace { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;
+  animation: bpLinesOut 1.2s ease 2.4s forwards; }
+.slide-trace line { stroke: #bff4ff; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: bDraw .45s cubic-bezier(.6,0,.2,1) forwards; }
+
+/* Page-top photo: panel-by-panel build */
 .hero-build { animation: bpSlide 1.2s steps(6, end) .15s both; }
 @keyframes bpSlide {
   from { clip-path: inset(100% 0 0 0); filter: grayscale(1) sepia(.6) hue-rotate(160deg) saturate(2.2) brightness(.75); }
   80% { clip-path: inset(0 0 0 0); filter: grayscale(1) sepia(.6) hue-rotate(160deg) saturate(2.2) brightness(.75); }
   to { clip-path: inset(0 0 0 0); filter: none; }
 }
-@media (prefers-reduced-motion: reduce) { .slide-build, .hero-build { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-build { animation: none; } .slide-develop { opacity: 1; animation: none; } .slide-trace { display: none; } }

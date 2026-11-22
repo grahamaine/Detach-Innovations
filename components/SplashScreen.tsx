@@ -13,15 +13,15 @@ export default function SplashScreen() {
 
   useEffect(() => {
     try {
-      if (sessionStorage.getItem('jf_splash_seen')) {
-        setShow(false);
+      // Once per visit, and never over the admin portal.
+      if (sessionStorage.getItem('jf_splash_seen') || location.pathname.startsWith('/admin')) {
+        queueMicrotask(() => setShow(false));
         return;
       }
       sessionStorage.setItem('jf_splash_seen', '1');
     } catch {}
     const t = setTimeout(() => dismiss(), DURATION_MS);
     return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function dismiss() {

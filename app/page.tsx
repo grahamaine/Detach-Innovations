@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import BuildImg from '@/components/BuildImg';
 import { BRAND, waLink } from '@/lib/brand';
-import { PRODUCTS, STEEL_ITEMS, STEPS } from '@/lib/products';
+import { STEEL_ITEMS, STEPS } from '@/lib/products';
+import { getProducts } from '@/lib/data';
 import GallerySlideshow from '@/components/GallerySlideshow';
 import Reveal from '@/components/Reveal';
 import BlueprintGrid from '@/components/BlueprintGrid';
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const products = await getProducts();
   return (
     <div className="bg-white text-slate-800">
       {/* HERO with photo background */}
@@ -62,7 +66,7 @@ export default function Home() {
           </p>
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUCTS.map((p, i) => (
+          {products.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 3) * 100}>
               <div className="group relative flex flex-col h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-brand hover:shadow-xl hover:-translate-y-1 transition">
                 <Link href={`/products/${p.slug}`} className="absolute inset-0 z-0 rounded-2xl" aria-label={`${p.title} details`} />
@@ -75,6 +79,7 @@ export default function Home() {
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand transition uppercase">{p.title}</h3>
                   <p className="mt-3 text-sm text-slate-600 leading-relaxed flex-1">{p.summary}</p>
+                  {p.priceNote && <p className="mt-3 text-sm font-bold text-brand">{p.priceNote}</p>}
                   <Link
                     href={`/request?item=${encodeURIComponent(p.title)}`}
                     className="btn-shine relative z-10 mt-5 text-center bg-brand hover:bg-brand-dark text-white font-bold px-4 py-2.5 rounded-lg transition hover:-translate-y-0.5 uppercase tracking-wide"

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import BuildImg from '@/components/BuildImg';
 import type { Metadata } from 'next';
-import { PRODUCTS } from '@/lib/products';
+import { getProducts } from '@/lib/data';
 import Reveal from '@/components/Reveal';
 
 export const metadata: Metadata = {
@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   description: 'Studio cabins, glass-panel cabins and site offices, container conversions, modular steel furniture and shade lounges, built in Entebbe.',
 };
 
-export default function ProductsPage() {
+export const revalidate = 60;
+
+export default async function ProductsPage() {
+  const products = await getProducts();
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
       <header className="text-center mb-12 animate-fade-in-up">
@@ -19,7 +22,7 @@ export default function ProductsPage() {
         </p>
       </header>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PRODUCTS.map((p, i) => (
+        {products.map((p, i) => (
           <Reveal key={p.slug} delay={(i % 3) * 100}>
             <Link
               href={`/products/${p.slug}`}
@@ -32,6 +35,7 @@ export default function ProductsPage() {
               <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand transition uppercase">{p.title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{p.summary}</p>
+                {p.priceNote && <p className="mt-3 text-sm font-bold text-brand">{p.priceNote}</p>}
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand uppercase">
                   View details <span className="transition group-hover:translate-x-0.5">→</span>
                 </span>
