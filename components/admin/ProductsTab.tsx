@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Save, Check, EyeOff } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import ProductIcon from '@/components/ProductIcon';
 import { PRODUCTS, type Product } from '@/lib/products';
 import { btnPrimary, card, field } from '@/components/admin/ui';
 
@@ -59,7 +61,7 @@ function ProductCard({ p, edit }: { p: Product; edit?: Edit }) {
       <img src={p.photos[0].src} alt="" className="h-28 w-full rounded-lg object-cover sm:w-36" />
       <div className="flex-1 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="font-bold uppercase text-slate-900">{p.title}</h3>
+          <h3 className="flex items-center gap-2 font-bold uppercase text-slate-900"><ProductIcon slug={p.slug} size={18} className="text-brand" />{p.title}{hidden && <EyeOff size={16} className="text-slate-400" aria-label="Hidden" />}</h3>
           <label className="flex items-center gap-2 text-sm text-slate-700">
             <input type="checkbox" checked={hidden} onChange={(e) => setHidden(e.target.checked)} className="h-5 w-5" />
             Hide from website
@@ -75,9 +77,9 @@ function ProductCard({ p, edit }: { p: Product; edit?: Edit }) {
         </label>
         <div className="flex items-center gap-3">
           <button className={btnPrimary} onClick={save} disabled={state === 'saving'}>
-            {state === 'saving' ? 'Saving…' : 'Save'}
+            <Save size={18} aria-hidden="true" /> {state === 'saving' ? 'Saving…' : 'Save'}
           </button>
-          {state === 'saved' && <span className="text-sm text-emerald-700">Saved</span>}
+          {state === 'saved' && <span className="inline-flex items-center gap-1 text-sm text-emerald-700"><Check size={16} aria-hidden="true" /> Saved</span>}
           {state === 'error' && <span className="text-sm text-red-700">Couldn&apos;t save. Try again.</span>}
         </div>
       </div>

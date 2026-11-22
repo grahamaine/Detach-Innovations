@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BRAND, telLink, waLink } from '@/lib/brand';
 import QuoteForm from '@/components/QuoteForm';
+import { HardHat, Phone, MessageCircle, Mail, MapPin, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -9,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const cards = [
-    { icon: '👷', label: `${BRAND.ownerTitle}`, value: BRAND.owner },
-    { icon: '📞', label: 'Call', value: BRAND.phones[0], href: telLink(BRAND.phones[0]) },
-    { icon: '💬', label: 'WhatsApp', value: BRAND.phones[0], href: waLink(`Hello ${BRAND.name}`) },
-    { icon: '✉️', label: 'Email', value: BRAND.email, href: `mailto:${BRAND.email}` },
-    { icon: '📍', label: 'Workshop', value: BRAND.address },
-    { icon: '🕗', label: 'Hours', value: BRAND.hours },
+    { icon: HardHat, label: `${BRAND.ownerTitle}`, value: BRAND.owner },
+    { icon: Phone, label: 'Call', value: BRAND.phones[0], href: telLink(BRAND.phones[0]) },
+    { icon: MessageCircle, label: 'WhatsApp', value: BRAND.phones[0], href: waLink(`Hello ${BRAND.name}`) },
+    { icon: Mail, label: 'Email', value: BRAND.email, href: `mailto:${BRAND.email}` },
+    { icon: MapPin, label: 'Workshop', value: BRAND.address },
+    { icon: Clock, label: 'Hours', value: BRAND.hours },
   ];
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -26,7 +27,9 @@ export default function ContactPage() {
         <ul className="space-y-3">
           {cards.map((c) => (
             <li key={c.label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm flex items-center gap-4">
-              <span className="text-3xl">{c.icon}</span>
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand-light text-brand">
+                <c.icon size={22} aria-hidden="true" />
+              </span>
               <div>
                 <p className="text-xs font-semibold text-brand uppercase tracking-wider">{c.label}</p>
                 {c.href ? (

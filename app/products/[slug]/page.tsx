@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { CircleCheck } from 'lucide-react';
+import ProductIcon from '@/components/ProductIcon';
 import BuildImg from '@/components/BuildImg';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -46,7 +48,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
 
         <div className="animate-fade-in-up">
           <div className="flex items-center gap-3">
-            <span className="text-4xl">{p.icon}</span>
+            <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-light text-brand"><ProductIcon slug={p.slug} size={24} /></span>
             <span className="text-xs font-semibold text-brand uppercase tracking-wider">{p.category}</span>
           </div>
           <h1 className="mt-3 text-4xl font-bold text-slate-900 uppercase">{p.title}</h1>
@@ -61,7 +63,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
               <h2 className="font-bold text-slate-900 uppercase">What&apos;s included</h2>
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
                 {p.features.map((f) => (
-                  <li key={f} className="flex gap-2"><span className="text-brand font-bold">✓</span>{f}</li>
+                  <li key={f} className="flex gap-2"><CircleCheck size={20} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />{f}</li>
                 ))}
               </ul>
             </div>

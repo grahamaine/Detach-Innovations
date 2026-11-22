@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ProductIcon from '@/components/ProductIcon';
+import { CircleCheck } from 'lucide-react';
 import BuildImg from '@/components/BuildImg';
 import { BRAND, waLink } from '@/lib/brand';
 import { STEEL_ITEMS, STEPS } from '@/lib/products';
@@ -72,7 +74,7 @@ export default async function Home() {
                 <Link href={`/products/${p.slug}`} className="absolute inset-0 z-0 rounded-2xl" aria-label={`${p.title} details`} />
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
                                     <BuildImg src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                  <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow">
+                  <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow"><ProductIcon slug={p.slug} size={12} />
                     {p.category}
                   </span>
                 </div>
@@ -229,7 +231,7 @@ export default async function Home() {
               'Delivered and fitted anywhere in Uganda',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-700">
-                <span className="mt-1 text-brand font-bold">✓</span>
+                <CircleCheck size={20} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}

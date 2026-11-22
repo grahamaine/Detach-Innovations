@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ProductIcon from '@/components/ProductIcon';
+import { Wrench } from 'lucide-react';
 import BuildImg from '@/components/BuildImg';
 import type { Metadata } from 'next';
 import { getProducts } from '@/lib/data';
@@ -30,7 +32,7 @@ export default async function ProductsPage() {
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
                                 <BuildImg src={p.photos[0].src} alt={p.photos[0].alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                <span className="absolute left-3 top-3 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow">{p.category}</span>
+                <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow"><ProductIcon slug={p.slug} size={12} />{p.category}</span>
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand transition uppercase">{p.title}</h2>
@@ -45,7 +47,7 @@ export default async function ProductsPage() {
         ))}
       </div>
       <Reveal className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:p-10 flex flex-col md:flex-row items-center gap-6">
-        <div className="text-6xl animate-float">🔩</div>
+        <div className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-steel text-white animate-float"><Wrench size={40} aria-hidden="true" /></div>
         <div className="flex-1 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 uppercase">Need steel materials?</h2>
           <p className="mt-2 text-slate-600">We sell tube, angle, flat bar, pipe and sheets from our bulk stock.</p>

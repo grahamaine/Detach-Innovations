@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Oswald } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -13,7 +13,10 @@ const oswald = Oswald({
   weight: ['300', '400', '500', '600', '700'],
 });
 
+export const viewport: Viewport = { themeColor: '#0f5a3d' };
+
 export const metadata: Metadata = {
+  appleWebApp: { capable: true, title: 'Detach', statusBarStyle: 'default' },
   metadataBase: new URL(BRAND.siteUrl),
   title: {
     default: `${BRAND.fullName} — ${BRAND.tagline} | Mobile Cabins, Containers & Steel in Entebbe`,
