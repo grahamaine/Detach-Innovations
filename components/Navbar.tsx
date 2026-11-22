@@ -43,12 +43,19 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700 uppercase tracking-wide">
+        <div className="hidden xl:flex items-center space-x-6 whitespace-nowrap text-sm font-medium text-slate-700 uppercase tracking-wide">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="link-underline hover:text-brand transition">
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/admin"
+            className="inline-flex items-center gap-1.5 rounded border border-slate-300 px-3 py-2 font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+          >
+            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+            Admin login
+          </Link>
           <Link
             href="/request"
             className="btn-shine bg-brand hover:bg-brand-dark text-white font-bold px-4 py-2 rounded transition"
@@ -57,8 +64,18 @@ export default function Navbar() {
           </Link>
         </div>
 
+        <div className="flex items-center gap-1 xl:hidden">
+        <Link
+          href="/admin"
+          aria-label="Admin login"
+          title="Admin login"
+          className="flex h-10 items-center gap-1.5 rounded-full border border-slate-300 px-3 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-brand hover:text-brand"
+        >
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+          <span className="hidden min-[360px]:inline">Admin</span>
+        </Link>
         <button
-          className="md:hidden text-slate-700"
+          className="grid h-10 w-10 place-items-center text-slate-700"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -67,10 +84,11 @@ export default function Navbar() {
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+        </div>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-slate-200 px-6 py-4 space-y-3 text-sm text-slate-700 uppercase tracking-wide">
+        <div className="xl:hidden border-t border-slate-200 px-6 py-4 space-y-3 text-sm text-slate-700 uppercase tracking-wide">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="block hover:text-brand" onClick={() => setOpen(false)}>
               {l.label}
@@ -82,6 +100,10 @@ export default function Navbar() {
           <a href={waLink(`Hello ${BRAND.name}, I'd like a quote.`)} className="block text-green-700 font-bold" target="_blank" rel="noopener">
             WhatsApp us
           </a>
+          <Link href="/admin" className="flex items-center gap-2 border-t border-slate-200 pt-3 font-semibold text-slate-600 hover:text-brand" onClick={() => setOpen(false)}>
+            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+            Admin login
+          </Link>
         </div>
       )}
     </nav>

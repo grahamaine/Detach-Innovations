@@ -58,6 +58,7 @@ export default function Footer() {
             <li><Link href="/projects" className="hover:text-white">Projects</Link></li>
             <li><Link href="/#gallery" className="hover:text-white">Gallery</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+            <li><Link href="/admin" className="hover:text-white">🔒 Admin login</Link></li>
             <li>
               <a href={waLink(`Hello ${BRAND.name}, I'd like a quote.`)} target="_blank" rel="noopener" className="hover:text-white">
                 WhatsApp us
@@ -69,7 +70,10 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row gap-2 justify-between text-xs text-slate-400">
-          <p>© {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {BRAND.fullName}. All rights reserved. ·{' '}
+            <Link href="/admin" className="font-semibold text-slate-300 hover:text-white">Team portal</Link>
+          </p>
           <p>
             Powered and rendered by{' '}
             <a href={`https://wa.me/${AGENCY.whatsapp}`} target="_blank" rel="noopener" className="font-semibold text-white hover:text-spark">
