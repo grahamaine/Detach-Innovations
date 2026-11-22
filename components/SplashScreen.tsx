@@ -37,7 +37,7 @@ export default function SplashScreen() {
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center px-6 transition-opacity duration-700 ${
         closing ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
-      style={{ background: '#06122a' }}
+      style={{ background: '#fbfaf6' }}
     >
       <BlueprintGrid />
 
@@ -45,17 +45,17 @@ export default function SplashScreen() {
         <BuildingHouse />
 
         <div className="splash-brand mt-6 flex flex-col items-center">
-          <div className="bg-white rounded-2xl px-6 py-4 shadow-2xl ring-1 ring-cyan-300/40">
+          <div className="bg-white rounded-2xl px-6 py-4 shadow-xl ring-1 ring-slate-300">
             <Logo size="lg" />
           </div>
-          <p className="mt-5 text-[11px] md:text-xs tracking-[0.25em] text-cyan-300/80 uppercase">
+          <p className="mt-5 text-[11px] md:text-xs tracking-[0.25em] text-slate-500 uppercase">
             Earth Moving Housing · Entebbe
           </p>
         </div>
 
         <button
           onClick={dismiss}
-          className="mt-8 text-xs font-medium text-white/45 hover:text-cyan-300 transition uppercase tracking-widest"
+          className="mt-8 text-xs font-medium text-slate-500 hover:text-slate-900 transition uppercase tracking-widest"
         >
           Skip →
         </button>

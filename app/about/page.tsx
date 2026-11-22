@@ -16,11 +16,10 @@ export default function AboutPage() {
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center scale-105 hero-build" style={{ backgroundImage: "url('/images/container-mural.webp')" }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/90 via-slate-900/70 to-brand-dark/85 animate-gradient" />
         <BlueprintGrid variant="overlay" />
-        <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
-          <h1 className="text-4xl md:text-6xl font-extrabold uppercase drop-shadow-xl">About {BRAND.name}</h1>
-          <p className="mt-5 text-lg text-slate-100 max-w-2xl mx-auto">{BRAND.tagline}.</p>
+        <div className="relative max-w-4xl mx-auto text-center text-slate-900 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-extrabold uppercase">About {BRAND.name}</h1>
+          <p className="mt-5 text-lg text-slate-700 max-w-2xl mx-auto">{BRAND.tagline}.</p>
         </div>
       </header>
 
@@ -64,9 +63,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-brand to-brand-dark animate-gradient py-16 px-6 text-center text-white">
-        <h2 className="text-3xl font-bold uppercase">Let&apos;s build something</h2>
-        <Link href="/request" className="btn-shine inline-block mt-6 bg-white text-brand font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide">
+      <section className="relative overflow-hidden border-t border-slate-200 py-16 px-6 text-center text-slate-900">
+        <BlueprintGrid />
+        <h2 className="relative text-3xl font-bold uppercase">Let&apos;s build something</h2>
+        <Link href="/request" className="relative btn-shine inline-block mt-6 bg-brand hover:bg-brand-dark text-white font-bold text-lg px-10 py-4 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide">
           Request a Quote
         </Link>
       </section>

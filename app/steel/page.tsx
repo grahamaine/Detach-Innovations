@@ -15,12 +15,11 @@ export default function SteelPage() {
     <div>
       <header className="relative px-6 py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center scale-105 hero-build" style={{ backgroundImage: "url('/images/workshop-grinding.webp')" }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#06122a]/95 via-slate-900/75 to-brand-dark/80 animate-gradient" />
         <BlueprintGrid variant="overlay" />
-        <div className="relative max-w-4xl mx-auto text-center text-white animate-fade-in-up">
-          <span className="text-xs font-semibold text-spark uppercase tracking-widest">Steel Supply</span>
-          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold uppercase drop-shadow-xl">Steel Materials in Bulk</h1>
-          <p className="mt-5 text-lg text-slate-100 max-w-2xl mx-auto">
+        <div className="relative max-w-4xl mx-auto text-center text-slate-900 animate-fade-in-up">
+          <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Steel Supply</span>
+          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold uppercase">Steel Materials in Bulk</h1>
+          <p className="mt-5 text-lg text-slate-700 max-w-2xl mx-auto">
             We buy steel in large quantities for our own fabrication and sell from the same stock to
             builders, welders, workshops and contractors.
           </p>
@@ -54,18 +53,18 @@ export default function SteelPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-16 px-6 text-center text-white">
+      <section className="relative overflow-hidden py-16 px-6 text-center text-slate-900">
         <BlueprintGrid />
         <Reveal className="relative max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold uppercase">Buying for a project?</h2>
-          <p className="mt-3 text-slate-300">
+          <p className="mt-3 text-slate-600">
             Send your list of sizes and quantities and we&apos;ll price the lot. We can also fabricate the frames for you.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/request?item=Steel%20materials" className="btn-shine bg-spark hover:bg-amber-400 text-steel font-bold px-8 py-3.5 rounded-xl shadow-lg transition hover:-translate-y-0.5 uppercase tracking-wide">
               Send my steel list
             </Link>
-            <a href={telLink(BRAND.phones[0])} className="border border-white/50 bg-white/10 hover:bg-white/20 font-medium px-8 py-3.5 rounded-xl transition uppercase tracking-wide">
+            <a href={telLink(BRAND.phones[0])} className="border border-slate-300 bg-white hover:border-slate-500 text-slate-800 font-medium px-8 py-3.5 rounded-xl transition uppercase tracking-wide">
               Call {BRAND.phones[0]}
             </a>
           </div>
