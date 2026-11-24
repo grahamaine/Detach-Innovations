@@ -37,10 +37,14 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
           <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200">
                         <BuildImg src={hero.src} alt={hero.alt} frameClass="w-full" className="w-full aspect-[4/5] object-cover" />
           </div>
+          <p className="mt-2 text-sm text-slate-600">{hero.alt}</p>
           {rest.length > 0 && (
             <div className="mt-3 grid grid-cols-3 gap-3">
               {rest.map((ph) => (
-                <BuildImg key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" frameClass="rounded-xl ring-1 ring-slate-200" className="aspect-square w-full object-cover" />
+                <figure key={ph.src}>
+                  <BuildImg src={ph.src} alt={ph.alt} loading="lazy" frameClass="rounded-xl ring-1 ring-slate-200" className="aspect-square w-full object-cover" />
+                  <figcaption className="mt-1 text-xs leading-snug text-slate-600">{ph.alt}</figcaption>
+                </figure>
               ))}
             </div>
           )}

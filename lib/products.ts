@@ -21,6 +21,7 @@ export const PRODUCTS: Product[] = [
     body: [
       'Our studio cabins arrive finished: ceilings, lighting, sockets, glazing and paint are done in the workshop before delivery. Each unit sits on blocks or plinths, so there is no slab to pour and the cabin can be lifted and moved later.',
       'Every studio starts as a scaled drawing. We lay out the bed, sofa, kitchenette, shower room and deck to your plot and budget, and you sign off the plan before any steel is cut.',
+      'This is zero-earth, pre-made housing: about 80% of each unit is pre-designed and built off site, and it stands on a steel base frame set on blocks, so it can go up almost anywhere without digging foundations.',
     ],
     features: [
       'Kitchenette with sink and cabinets',
@@ -37,6 +38,10 @@ export const PRODUCTS: Product[] = [
       { src: '/images/studio-sliding-door.webp', alt: 'Bedroom opening onto a balcony through sliding glass doors' },
       { src: '/images/studio-raised-deck.webp', alt: 'Studio cabin deck raised on concrete blocks' },
       { src: '/images/studio-red-corner.webp', alt: 'Corner of a red studio cabin on blocks' },
+      { src: '/images/studio-two-tone.webp', alt: 'Zero-earth pre-made studio: red and blue walls, full-height glazing and a railed balcony' },
+      { src: '/images/studio-railings.webp', alt: 'Steel balcony railings and glazing on a studio raised on a painted block plinth' },
+      { src: '/images/finished-interior.webp', alt: 'Finished interior: plywood floor, downlights, sockets and a yellow feature wall' },
+      { src: '/images/zero-earth-base-frame.webp', alt: 'Day one on site: the steel base frame set level on concrete blocks — no slab, no digging' },
     ],
   },
   {
@@ -63,6 +68,7 @@ export const PRODUCTS: Product[] = [
       { src: '/images/cabin-side.webp', alt: 'Side of a glass-panel cabin reflecting the garden' },
       { src: '/images/on-site-fitting.webp', alt: 'Fabricator measuring plywood beside a cabin' },
       { src: '/images/glazed-front.webp', alt: 'Glazed front with louvres and steel railings' },
+      { src: '/images/green-cabin-deck.webp', alt: 'Green-panel cabin with a run of glazing and a raised concrete deck' },
     ],
   },
   {
@@ -84,7 +90,10 @@ export const PRODUCTS: Product[] = [
       'Paint and murals to your brand',
     ],
     uses: ['Shops and kiosks', 'Offices', 'Cafés and bars', 'Stores and workshops'],
-    photos: [{ src: '/images/container-mural.webp', alt: 'Container with red-framed openings and a hand-painted mural' }],
+    photos: [
+      { src: '/images/container-mural.webp', alt: 'Container with red-framed openings and a hand-painted mural' },
+      { src: '/images/mural-container-garden.webp', alt: 'Mural container set in a landscaped garden, with a hardwood table on a steel frame in front' },
+    ],
   },
   {
     slug: 'modular-steel-furniture',
@@ -108,6 +117,8 @@ export const PRODUCTS: Product[] = [
       { src: '/images/steel-frame-single.webp', alt: 'Black welded steel sofa-bed frame' },
       { src: '/images/steel-frame-pair.webp', alt: 'Two modular steel frames joined side by side' },
       { src: '/images/modular-set.webp', alt: 'Modular steel frames with a red steel cube table' },
+      { src: '/images/steel-glass-table.webp', alt: 'Painted steel table frame with a black glass top and slatted shelf' },
+      { src: '/images/pergola-benches.webp', alt: 'Hardwood dining tables and benches on black steel frames under a pergola' },
     ],
   },
   {
@@ -131,6 +142,32 @@ export const PRODUCTS: Product[] = [
     photos: [
       { src: '/images/garden-lounge.webp', alt: 'Covered outdoor lounge with shade-net walls and decking' },
       { src: '/images/lounge-seating.webp', alt: 'Chairs and tables on plywood decking under shade netting' },
+      { src: '/images/courtyard-seating.webp', alt: 'Courtyard lounge with steel posts, shade screen and café seating' },
+    ],
+  },
+  {
+    slug: 'custom-steel-work',
+    title: 'Custom Steel Work',
+    category: 'Steel work',
+    icon: '🔧',
+    summary:
+      'Made-to-order steel pieces — step ladders, table and bench frames, railings and grilles — cut, welded and painted in our yard.',
+    body: [
+      'Beyond full units, we make single steel pieces to your measurements: step ladders, table and bench frames, balcony railings, grilles and brackets.',
+      'Everything is cut and welded in our Entebbe workshop from the same steel stock we sell, then painted in the colour you choose.',
+    ],
+    features: [
+      'Box tube, angle and flat bar construction',
+      'Welded and painted to your colour',
+      'Built to your measurements',
+      'Glass, timber or steel tops for tables',
+    ],
+    uses: ['Homes and gardens', 'Hotels, cafés and bars', 'Shops and stores', 'Construction sites'],
+    photos: [
+      { src: '/images/steel-step-ladder.webp', alt: 'A-frame steel step ladder with a safety chain, painted black' },
+      { src: '/images/steel-glass-table.webp', alt: 'Steel table frame with a black glass top' },
+      { src: '/images/pergola-benches.webp', alt: 'Steel-framed benches and tables under a timber pergola' },
+      { src: '/images/studio-railings.webp', alt: 'Steel balcony railings on a studio cabin' },
     ],
   },
 ];
