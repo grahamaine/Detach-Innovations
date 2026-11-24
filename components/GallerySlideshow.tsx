@@ -50,12 +50,12 @@ export default function GallerySlideshow() {
     >
       {/* Stage */}
       <div className="group relative aspect-[16/9] w-full overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bp-stage">
-        {photos.map((src, i) => (
+        {photos.map(({ src, caption }, i) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             key={src}
             src={src}
-            alt={`Detach Innovations project photo ${i + 1}`}
+            alt={caption}
             loading={i === 0 ? 'eager' : 'lazy'}
             className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
               i === index ? 'scale-100 slide-develop' : 'opacity-0 scale-105'
@@ -63,7 +63,7 @@ export default function GallerySlideshow() {
           />
         ))}
         {(() => {
-          const t = traceFor(photos[index]);
+          const t = traceFor(photos[index].src);
           return t ? <TraceOverlay key={index} trace={t} className="slide-trace" drawSeconds={1.5} delay={0.1} /> : null;
         })()}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
@@ -92,6 +92,10 @@ export default function GallerySlideshow() {
           <Expand size={14} aria-hidden="true" /> View full gallery
         </button>
 
+        <p key={`cap-${index}`} className="absolute bottom-4 left-5 right-24 text-sm md:text-base font-semibold text-white drop-shadow animate-fade-in-up">
+          {photos[index].caption}
+        </p>
+
         <div className="absolute bottom-4 right-5 text-xs font-medium text-white bg-black/40 backdrop-blur rounded-full px-3 py-1 tabular-nums">
           {index + 1} / {photos.length}
         </div>
@@ -99,11 +103,11 @@ export default function GallerySlideshow() {
 
       {/* Thumbnail strip */}
       <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
-        {photos.map((src, i) => (
+        {photos.map(({ src, caption }, i) => (
           <button
             key={src}
             onClick={() => setIndex(i)}
-            aria-label={`Go to photo ${i + 1}`}
+            aria-label={`Go to photo ${i + 1}: ${caption}`}
             className={`relative h-14 w-20 flex-shrink-0 overflow-hidden rounded-lg ring-2 transition ${
               i === index ? 'ring-brand' : 'ring-transparent opacity-60 hover:opacity-100'
             }`}
@@ -128,14 +132,15 @@ export default function GallerySlideshow() {
             </button>
           </div>
           <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {photos.map((src, i) => (
+            {photos.map(({ src, caption }, i) => (
               <button
                 key={src}
                 onClick={() => setViewer(i)}
                 className="group relative aspect-square overflow-hidden rounded-xl ring-1 ring-white/10"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt={`Photo ${i + 1}`} loading="lazy" className="h-full w-full object-cover group-hover:scale-110 transition duration-500" />
+                <img src={src} alt={caption} loading="lazy" className="h-full w-full object-cover group-hover:scale-110 transition duration-500" />
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-2 pt-6 text-left text-xs font-medium text-white">{caption}</span>
               </button>
             ))}
           </div>
@@ -150,8 +155,8 @@ export default function GallerySlideshow() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={photos[viewer]}
-            alt={`Photo ${viewer + 1}`}
+            src={photos[viewer].src}
+            alt={photos[viewer].caption}
             className="max-h-[88vh] max-w-[92vw] object-contain rounded-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
@@ -177,7 +182,7 @@ export default function GallerySlideshow() {
             <ChevronRight size={26} aria-hidden="true" />
           </button>
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm tabular-nums">
-            {viewer + 1} / {photos.length}
+            {photos[viewer].caption} · {viewer + 1} / {photos.length}
           </div>
         </div>
       )}
